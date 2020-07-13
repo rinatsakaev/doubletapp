@@ -1,32 +1,31 @@
 import * as Sequelize from 'sequelize';
 import {Model} from 'sequelize';
+import sequelize from '../sequelizeConnection';
 
-class User extends Model{
-    static init(sequelize){
-        return super.init({
-            id: {
-                type: Sequelize.INTEGER,
-                allowNull: false,
-                primaryKey: true,
-                autoIncrement: true,
-            },
-            fullName:{
-                type: Sequelize.STRING,
-                allowNull: false
-            },
-            rating:{
-                type: Sequelize.INTEGER,
-                allowNull: false
-            },
-            age: {
-                type: Sequelize.INTEGER,
-                allowNull: false
-            }
-        }, {sequelize})
-    };
-    static associate(models){
-        this.group = this.belongsTo(models.Group);
-        this.color = this.belongsTo(models.Color);
-        this.gender = this.belongsTo(models.Gender);
-    }
+export default class User extends Model {
 }
+
+User.init({
+    id: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        primaryKey: true,
+        autoIncrement: true,
+    },
+    fullName: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
+    rating: {
+        type: Sequelize.INTEGER,
+        allowNull: false
+    },
+    age: {
+        type: Sequelize.INTEGER,
+        allowNull: false
+    }
+}, {sequelize});
+
+User.group = User.hasOne(Group);
+User.color = User.hasOne(Color);
+User.gender = User.hasOne(Gender);

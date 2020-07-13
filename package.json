@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --mode=development --open",
+    "startclient": "webpack-dev-server --mode=development --open --config ./webpack.client.config.js",
+    "startserver": "webpack --mode=development --config ./webpack.server.config.js && node ./dist-server/index_bundle.js",
     "build": "webpack --mode production"
   },
   "keywords": [],
@@ -22,7 +22,8 @@
     "style-loader": "^1.2.1",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.12",
-    "webpack-dev-server": "^3.11.0"
+    "webpack-dev-server": "^3.11.0",
+    "webpack-node-externals": "^2.5.0"
   },
   "dependencies": {
     "pg": "^8.3.0",
@@ -31,6 +32,7 @@
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
     "sass": "^1.26.10",
-    "sequelize": "^6.3.3"
+    "sequelize": "^6.3.3",
+    "express": "latest"
   }
 }

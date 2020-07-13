@@ -1,20 +1,21 @@
-import * as Sequelize from 'sequelize';
 import {Model} from 'sequelize';
+import {DataTypes} from 'sequelize';
+import sequelize from '../sequelizeConnection';
 
-class Speciality extends Model {
-    static init(sequelize) {
-        return super.init({
-                id: {
-                    type: Sequelize.INTEGER,
-                    allowNull: false,
-                    primaryKey: true,
-                    autoIncrement: true,
-                },
-                name: {
-                    type: Sequelize.STRING,
-                    allowNull: false
-                }
-            }
-        )
-    }
+export default class Speciality extends Model {
 }
+
+Speciality.init({
+        id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            primaryKey: true,
+            autoIncrement: true,
+        },
+        name: {
+            type: DataTypes.STRING,
+            allowNull: false
+        }
+    },
+    {sequelize}
+);

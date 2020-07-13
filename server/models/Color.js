@@ -1,8 +1,9 @@
 import * as Sequelize from 'sequelize';
 import {Model} from 'sequelize';
+import sequelizeConnection from '../sequelizeConnection';
 
-class Color extends Model {
-    static init(sequelize) {
+export default class Color extends Model {
+    static init() {
         return super.init({
                 id: {
                     type: Sequelize.INTEGER,

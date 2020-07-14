@@ -2,16 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f5b3edb3-3750-4417-98f5-ab8518bbdf94" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/server/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/sequelizeConnection.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webpack.server.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dist-server/data.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/data.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.babelrc" beforeDir="false" afterPath="$PROJECT_DIR$/.babelrc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-server/index_bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist-server/index_bundle.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/models/Color.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/Color.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/models/Speciality.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/Speciality.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/models/Gender.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/Gender.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/models/Group.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/Group.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/models/User.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/User.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.client.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,15 +45,16 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/dist-server" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\rinat\WebstormProjects\doubletapp2" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\rinat\WebstormProjects\doubletapp2\src\components" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\rinat\WebstormProjects\doubletapp2\dist-server" />
+      <recent name="C:\Users\rinat\WebstormProjects\doubletapp2" />
     </key>
   </component>
   <component name="RunManager" selected="Node.js.index_bundle.js">
@@ -79,6 +82,7 @@
       <option name="presentableId" value="Default" />
       <updated>1594631038981</updated>
       <workItem from="1594631040171" duration="9980000" />
+      <workItem from="1594701087982" duration="1824000" />
     </task>
     <servers />
   </component>

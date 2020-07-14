@@ -1,6 +1,9 @@
 import * as Sequelize from 'sequelize';
 import {Model} from 'sequelize';
 import sequelize from '../sequelizeConnection';
+import Group from './Group';
+import Color from './Color';
+import Gender from './Gender';
 
 export default class User extends Model {
 }

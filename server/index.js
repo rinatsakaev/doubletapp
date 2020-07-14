@@ -1,7 +1,8 @@
-import path from 'path';
+import data from './data.json';
 import sequelizeConnection from './sequelizeConnection';
 import express from 'express';
 import Speciality from './models/Speciality';
+import Group from './models/Group';
 const app = express();
 app.get('/', (req, res) => {
     return res.send('Received a GET HTTP method');
@@ -10,9 +11,8 @@ app.get('/', (req, res) => {
 sequelizeConnection.authenticate()
     .then(() => sequelizeConnection.sync({force: true}))
     .then(() => {
-        Speciality.create({
-            name: "test"
-        }).then(x => console.log(x))
+        Speciality.bulkCreate(data.specialities)
+            .then(() => Group.bulkCreate(data.groups))
     })
     .then(() => {
         const port = 9090;

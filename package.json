@@ -13,9 +13,11 @@
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.10.4",
+    "@babel/plugin-transform-runtime": "^7.10.4",
     "@babel/preset-env": "^7.10.4",
     "@babel/preset-react": "^7.10.4",
     "babel-loader": "^8.1.0",
+    "babel-preset-latest": "^6.24.1",
     "css-loader": "^3.6.0",
     "html-webpack-plugin": "^4.3.0",
     "sass-loader": "^9.0.2",
@@ -26,13 +28,14 @@
     "webpack-node-externals": "^2.5.0"
   },
   "dependencies": {
+    "@babel/runtime": "^7.10.4",
+    "express": "latest",
     "pg": "^8.3.0",
     "pg-hstore": "^2.3.3",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
     "sass": "^1.26.10",
-    "sequelize": "^6.3.3",
-    "express": "latest"
+    "sequelize": "^6.3.3"
   }
 }

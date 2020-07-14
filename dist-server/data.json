@@ -1,0 +1,19 @@
+{
+  "specialities": [
+    {
+      "name": "КБ"
+    },
+    {
+      "name": "КН"
+    },
+    {
+      "name": "ФИИТ"
+    }
+  ],
+  "groups": [
+    {
+      "name": "КБ-101",
+      "speciality": 1
+    }
+  ]
+}

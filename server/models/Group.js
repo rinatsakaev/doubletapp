@@ -1,23 +1,19 @@
 import * as Sequelize from 'sequelize';
 import {Model} from 'sequelize';
+import Speciality from './Speciality';
+import sequelize from '../sequelizeConnection';
 
-class Group extends Model {
-    static init(sequelize) {
-        return super.init({
-                id: {
-                    type: Sequelize.INTEGER,
-                    allowNull: false,
-                    primaryKey: true,
-                    autoIncrement: true,
-                },
-                name: {
-                    type: Sequelize.STRING,
-                    allowNull: false
-                }
-            }
-        )
+export default class Group extends Model {}
+Group.init({
+    id: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        primaryKey: true,
+        autoIncrement: true,
+    },
+    name: {
+        type: Sequelize.STRING,
+        allowNull: false
     }
-    static associate(models){
-        this.speciality = this.belongsTo(models.Speciality)
-    }
-}
+}, {sequelize});
+Group.speciality = Group.hasOne(Speciality);

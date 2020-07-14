@@ -2,20 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f5b3edb3-3750-4417-98f5-ab8518bbdf94" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/header.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/select.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/text-field.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/static/dropdown-icon.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/styles/fonts/Geometria-Bold.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/styles/fonts/Geometria-Medium.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/styles/fonts/Geometria-Regular.woff2" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/App.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/App.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.client.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.client.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/select.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/select.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +76,7 @@
       <option name="presentableId" value="Default" />
       <updated>1594631038981</updated>
       <workItem from="1594631040171" duration="9980000" />
-      <workItem from="1594701087982" duration="12165000" />
+      <workItem from="1594701087982" duration="12793000" />
     </task>
     <servers />
   </component>

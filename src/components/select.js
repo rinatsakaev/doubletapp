@@ -11,9 +11,10 @@ export default function Select({placeholder}) {
     const styles = {
         container: () => ({
             width: '380px',
+            height: '48px',
             fontFamily: '\'Geometria\', sans-serif',
             fontWeight: 'normal',
-            fontSize: '16px',
+            fontSize: '16px'
         }),
         menu: () => ({
             padding: '16px 11px',
@@ -29,6 +30,9 @@ export default function Select({placeholder}) {
         }),
         indicatorSeparator: () => ({
             display: 'none'
+        }),
+        dropdownIndicator: () => ({
+            paddingRight: "22px"
         })
     };
     return (

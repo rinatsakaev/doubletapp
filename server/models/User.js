@@ -29,6 +29,6 @@ User.init({
     }
 }, {sequelize});
 
-User.group = User.hasOne(Group);
-User.color = User.hasOne(Color);
-User.gender = User.hasOne(Gender);
+User.group = User.belongsTo(Group);
+User.color = User.belongsTo(Color);
+User.gender = User.belongsTo(Gender);

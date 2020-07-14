@@ -16,4 +16,4 @@ Group.init({
         allowNull: false
     }
 }, {sequelize});
-Group.speciality = Group.hasOne(Speciality);
+Group.speciality = Group.belongsTo(Speciality);

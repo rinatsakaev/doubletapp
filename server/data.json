@@ -13,7 +13,50 @@
   "groups": [
     {
       "name": "КБ-101",
-      "speciality": 1
+      "SpecialityId": 1
+    },
+    {
+      "name": "ФИИТ-101",
+      "SpecialityId": 3
+    },
+    {
+      "name": "ФИИТ-102",
+      "SpecialityId": 3
+    },
+    {
+      "name": "ФИИТ-103",
+      "SpecialityId": 3
+    },
+    {
+      "name": "КН-101",
+      "SpecialityId": 2
+    }
+  ],
+  "genders": [
+    {
+      "name": "Мужской"
+    },
+    {
+      "name": "Женский"
+    }
+  ],
+  "colors": [
+    {"color": "#49C2E8"},
+    {"color": "#E25B5B"},
+    {"color": "#83C872"},
+    {"color": "#F7FB53"},
+    {"color": "#000000"},
+    {"color": "#EFA638"},
+    {"color": "url(lgbt.jpg)"}
+  ],
+  "users": [
+    {
+      "fullName": "Иванов Иван Иванович",
+      "rating": 97,
+      "age": 20,
+      "ColorId": 3,
+      "GenderId": 1,
+      "GroupId": 3
     }
   ]
 }

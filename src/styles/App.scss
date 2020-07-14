@@ -1,4 +1,54 @@
+$shadow: 0 7px 64px rgba(0, 0, 0, 0.07);
+@font-face {
+  font-family: 'Geometria';
+  font-style: normal;
+  font-weight: bold;
+  font-display: swap;
+  src: url('fonts/Geometria-Bold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Geometria';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('fonts/Geometria-Medium.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Geometria';
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+  src: url('fonts/Geometria-Regular.woff2') format('woff2');
+}
+
 h1 {
-  color: #27aedb;
-  text-align: center;
+  font-family: 'Geometria', sans-serif;
+  font-weight: bold;
+  font-size: 40px;
+}
+
+.header {
+  width: 100%;
+  height: 85px;
+  position: fixed;
+  box-shadow: $shadow;
+  padding: 22px 0 22px 123px;
+}
+
+.field {
+  &__label {
+    margin-bottom: 8px;
+  }
+
+  &__input {
+    width: 380px;
+    height: 48px;
+    background: #FFFFFF;
+    box-shadow: $shadow;
+    border-radius: 6px;
+    border: none;
+    padding-left: 20px;
+  }
 }

@@ -1,6 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const nodeExternals = require('webpack-node-externals');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 module.exports = {
     entry: './src/index.js',
     output: {
@@ -21,12 +21,29 @@ module.exports = {
                 use: ['style-loader',
                     'css-loader',
                     'sass-loader',]
+            },
+            {
+                test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: '[name].[ext]',
+                            outputPath: 'fonts/'
+                        }
+                    }
+                ]
             }
         ]
     },
     plugins: [
         new HtmlWebpackPlugin({
             template: './src/index.html'
+        }),
+        new CopyWebpackPlugin({
+            patterns: [
+                { from: './src/static', to: 'static' },
+            ],
         })
     ],
     devServer: {

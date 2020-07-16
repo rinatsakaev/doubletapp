@@ -2,8 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f5b3edb3-3750-4417-98f5-ab8518bbdf94" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/bucket-icon.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/button.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/search-field.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/sort-button.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/table-row.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/table.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/static/avatars/orig.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/static/bucket-icon.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/static/search-icon.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/select.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/select.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/models/User.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/User.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/text-field.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/text-field.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/App.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/App.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,20 +49,21 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/styles/fonts" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/static/avatars" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\rinat\WebstormProjects\doubletapp2\src\static\avatars" />
+      <recent name="C:\Users\rinat\WebstormProjects\doubletapp2\src\styles\fonts" />
+      <recent name="C:\Users\rinat\WebstormProjects\doubletapp2\dist-server" />
+      <recent name="C:\Users\rinat\WebstormProjects\doubletapp2" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\rinat\WebstormProjects\doubletapp2\src\styles" />
       <recent name="C:\Users\rinat\WebstormProjects\doubletapp2\src\static" />
       <recent name="C:\Users\rinat\WebstormProjects\doubletapp2\src\pages" />
       <recent name="C:\Users\rinat\WebstormProjects\doubletapp2\src\components" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\rinat\WebstormProjects\doubletapp2\src\styles\fonts" />
-      <recent name="C:\Users\rinat\WebstormProjects\doubletapp2\dist-server" />
-      <recent name="C:\Users\rinat\WebstormProjects\doubletapp2" />
     </key>
   </component>
   <component name="RunManager" selected="Node.js.index_bundle.js">
@@ -76,7 +91,8 @@
       <option name="presentableId" value="Default" />
       <updated>1594631038981</updated>
       <workItem from="1594631040171" duration="9980000" />
-      <workItem from="1594701087982" duration="12793000" />
+      <workItem from="1594701087982" duration="14377000" />
+      <workItem from="1594791602920" duration="15636000" />
     </task>
     <servers />
   </component>
@@ -156,13 +172,13 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1515" height="252" key="GridCell.Tab.3.right/0.0.1536.824/0.-1920.1080.1880@0.0.1536.824" timestamp="1594666078382" />
-    <state x="425" y="187" key="run.anything.popup" timestamp="1594708716812">
+    <state x="425" y="187" key="run.anything.popup" timestamp="1594793711985">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1594708716812" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1594713514551">
+    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1594793711985" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1594795879213">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1594713514551" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1594795879213" />
   </component>
 </project>

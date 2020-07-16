@@ -25,6 +25,9 @@ User.init({
     age: {
         type: Sequelize.INTEGER,
         allowNull: false
+    },
+    avatar:{
+        type: Sequelize.STRING
     }
 }, {sequelize});
 

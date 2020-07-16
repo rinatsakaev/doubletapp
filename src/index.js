@@ -1,5 +1,17 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import App from "./pages/App.js";
+import React from 'react'
+import ReactDOM from 'react-dom'
 
-ReactDOM.render(<App />, document.getElementById("root"));
+import { Router } from "react-router-dom"
+import {createBrowserHistory} from 'history'
+
+import App from './pages/App';
+
+// создаём кастомную историю
+const history = createBrowserHistory();
+
+ReactDOM.render((
+        <Router history={history}>
+            <App/>
+        </Router>
+    ), document.getElementById('root')
+);

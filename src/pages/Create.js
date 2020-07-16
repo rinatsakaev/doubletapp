@@ -51,7 +51,14 @@ export default class Create extends Component {
                     </section>
                     <section className={'fields-area'}>
                         <Select placeholder={'Мужской'} label={'Пол'}/>
-                        <ColorSelect/>
+                        <ColorSelect onSelected={(id) => console.log(id)} colors={[
+                            {id: 1,
+                            color: "blue"},
+                            {id: 2,
+                            color: "red"},
+                            {id: 3,
+                            color:"yellow"}
+                        ]}/>
                     </section>
                 </div>
             </div>

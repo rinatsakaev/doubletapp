@@ -1,20 +1,24 @@
 import React from 'react'
 import ReactSelect, {components} from 'react-select'
 import style from './style';
+
 const DropdownIndicator = (props) => {
     return (
         <components.DropdownIndicator {...props}>
-            <img src={'../static/dropdown-icon.svg'}/>
+            <img src={'../static/sort-icon.svg'}/>
         </components.DropdownIndicator>
     );
 };
-export default function Select({placeholder, label, options}) {
+export default function SelectSort({placeholder, options, defaultValue, onChange}) {
     return (
-        <div className={"field field_length_short"}>
-            <p className={"field__label"}>{label}</p>
+        <div className={'sort field field_length_short'}>
             <ReactSelect styles={style}
                          placeholder={placeholder}
+                         defaultValue={defaultValue}
                          options={options}
+                         getOptionLabel={option => option.label}
+                         getOptionValue={option => option.value}
+                         onChange={onChange}
                          components={{DropdownIndicator}}/>
         </div>
     )

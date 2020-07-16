@@ -93,7 +93,8 @@ a{
     grid-template-areas:  "controls controls"
     "title title"
     "avatar avatar"
-    "fields fields";
+    "fields fields"
+    "save-button .";
   }
   &__title{
     margin: 0;
@@ -101,9 +102,11 @@ a{
 }
 
 .field {
-
   &_length {
-    &_short {
+    &_short{
+      width: 180px;
+    }
+    &_medium {
       width: 380px;
     }
 
@@ -245,9 +248,7 @@ a{
 .avatar-area{
   grid-area: avatar;
 }
-fields-area{
-  grid-area: fields;
-}
+
 .users-table{
   width: 100%;
   &__body{

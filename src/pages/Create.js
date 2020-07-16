@@ -43,22 +43,21 @@ export default class Create extends Component {
                         </div>
                     </section>
                     <section className={'fields-area'}>
-                        <TextField label={'ФИО'} placeholder={'Имя'}/>
-                        <TextField label={'Email'} placeholder={'Email'}/>
-                        <Select placeholder={'Выбрать'} label={'Специальность'}/>
-                        <Select placeholder={'Выбрать'} label={'Группа'}/>
-                        <TextField label={'Рейтинг'} placeholder={'0'}/>
-                    </section>
-                    <section className={'fields-area'}>
-                        <Select placeholder={'Мужской'} label={'Пол'}/>
-                        <ColorSelect onSelected={(id) => console.log(id)} colors={[
-                            {id: 1,
-                            color: "blue"},
-                            {id: 2,
-                            color: "red"},
-                            {id: 3,
-                            color:"yellow"}
-                        ]}/>
+                        {/*<TextField label={'ФИО'} placeholder={'Имя'}/>*/}
+                        {/*<TextField label={'Email'} placeholder={'Email'}/>*/}
+                        {/*<Select placeholder={'Выбрать'} label={'Специальность'}/>*/}
+                        {/*<Select placeholder={'Выбрать'} label={'Группа'}/>*/}
+                        {/*<TextField label={'Рейтинг'} placeholder={'0'}/>*/}
+                        {/*<Select placeholder={'Мужской'} label={'Пол'}/>*/}
+                        {/*<ColorSelect onSelected={(id) => console.log(id)} colors={[*/}
+                        {/*    {id: 1,*/}
+                        {/*        color: "blue"},*/}
+                        {/*    {id: 2,*/}
+                        {/*        color: "red"},*/}
+                        {/*    {id: 3,*/}
+                        {/*        color:"yellow"}*/}
+                        {/*]}/>*/}
+                        {/*<MySelect/>*/}
                     </section>
                 </div>
             </div>

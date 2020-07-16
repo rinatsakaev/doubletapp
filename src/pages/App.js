@@ -49,8 +49,7 @@ class App extends Component {
                             <th className={'users-table__header'}>Группа</th>
                             <th className={'users-table__header'}>Возраст</th>
                             <th className={'users-table__header'}>Рейтинг</th>
-                            <th className={'users-table__header'}></th>
-                            <th className={'users-table__header'}></th>
+                            <th className={'users-table__header'}/>
                             </thead>
                             <tbody className={'users-table__body'}>
                             {row}

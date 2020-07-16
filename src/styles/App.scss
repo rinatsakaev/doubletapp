@@ -203,9 +203,11 @@ h1 {
 }
 .button-area{
   grid-area: button;
+  margin-bottom: 40px;
 }
 .search-area{
   grid-area: search;
+  margin-bottom: 32px;
 }
 .sort-area{
   grid-area: sort;
@@ -233,6 +235,10 @@ h1 {
   }
   &__cell{
     padding: 15px 17px 0 19px;
+  }
+  &__controls{
+    display: flex;
+    justify-content: space-between;
   }
   &__avatar {
     width: 40px;

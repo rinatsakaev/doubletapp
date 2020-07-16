@@ -10,8 +10,10 @@ export default function Row({user}) {
             <td className={"users-table__cell"}>{user.groupName}</td>
             <td className={"users-table__cell"}>{user.age}</td>
             <td className={"users-table__cell"}>{user.rating}</td>
-            <td className={"users-table__cell"}><div  className={"users-table__color"} style={{background: user.color}}/></td>
-            <td className={"users-table__cell"}><BucketIcon/></td>
+            <td className={"users-table__cell users-table__controls"}>
+                <div  className={"users-table__color"} style={{background: user.color}}/>
+                <BucketIcon/>
+            </td>
         </tr>
     )
 }

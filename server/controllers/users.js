@@ -10,7 +10,7 @@ export async function getUsers(req, res) {
             {model: Group},
             {model: Gender}]
     })).map(x => x.toJSON());
-    const specialities = await Speciality.findAll().map(x => x.toJSON());
+    const specialities = (await Speciality.findAll()).map(x => x.toJSON());
     for (let i = 0; i < users.length; i++)
         users[i].Group.Speciality = specialities.find(x => x.id === users[i].Group.SpecialityId);
 

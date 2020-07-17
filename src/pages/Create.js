@@ -10,6 +10,7 @@ import Select from '../components/select/select';
 import ColorSelect from '../components/color-select';
 import {Link} from 'react-router-dom';
 import ApiService from '../services/apiService';
+import Redirect from 'react-router-dom/es/Redirect';
 
 export default function Create() {
     const [selectedColor, setSelectedColor] = useState(undefined);
@@ -22,7 +23,8 @@ export default function Create() {
     const [groups, setGroups] = useState([]);
     const [specialities, setSpecialities] = useState([]);
     const [colors, setColors] = useState([]);
-
+    const [genders, setGenders] = useState([]);
+    const [age, setAge] = useState(undefined);
     useEffect(() => {
         ApiService.fetchColors()
             .then(x => x.json())
@@ -32,12 +34,30 @@ export default function Create() {
             .then(x => x.json())
             .then(setSpecialities)
             .catch(x => console.log(x));
+        ApiService.fetchGenders()
+            .then(x => x.json())
+            .then(setGenders)
+            .catch(x => console.log(x));
     }, []);
 
     useEffect(() => {
-        setGroups(speciality.Groups);
+        if (speciality)
+            setGroups(speciality.Groups);
     }, [speciality]);
 
+    const sendForm = () => {
+        const newUser = {
+            fullName,
+            GenderId: gender,
+            rating,
+            GroupId: group,
+            email,
+            age
+        };
+        ApiService.createUser(newUser)
+            .then(() => <Redirect to="/"/>)
+            .catch(x => console.log(x));
+    };
 
     return (
         <div>
@@ -68,25 +88,52 @@ export default function Create() {
                         <TextField label={'ФИО'} placeholder={'Имя'} onChange={(e) => setFullName(e.target.value)}/>
                     </div>
                     <div className={'container__field_gender'}>
-                        <Select placeholder={'Мужской'} label={'Пол'} onChange={(e) => setGender(e.id)}/>
+                        <Select placeholder={'Выбрать'}
+                                label={'Пол'}
+                                onChange={(e) => setGender(e.id)}
+                                options={genders}
+                                getOptionValue={x => x.id}
+                                getOptionLabel={x => x.name}
+                        />
                     </div>
                     <div className={'container__field_email'}>
-                        <TextField label={'Email'} placeholder={'Email'} onChange={(e) => setEmail(e.target.value)}/>
+                        <TextField label={'Email'}
+                                   placeholder={'Email'}
+                                   onChange={(e) => setEmail(e.target.value)}/>
                     </div>
                     <div className={'container__field_color'}>
                         <ColorSelect onSelected={setSelectedColor} colors={colors}/>
                     </div>
                     <div className={'container__field_speciality'}>
-                        <Select placeholder={'Выбрать'} label={'Специальность'} onChange={(e) => setSpeciality(e.id)}/>
+                        <Select placeholder={'Выбрать'}
+                                label={'Специальность'}
+                                onChange={(e) => setSpeciality(e)}
+                                options={specialities}
+                                getOptionValue={x => x.id}
+                                getOptionLabel={x => x.name}
+                        />
                     </div>
                     <div className={'container__field_group'}>
-                        <Select placeholder={'Выбрать'} label={'Группа'} onChange={(e) => setGroup(e.id)}/>
+                        <Select placeholder={'Выбрать'}
+                                label={'Группа'}
+                                onChange={(e) => setGroup(e.id)}
+                                options={groups}
+                                getOptionValue={x => x.id}
+                                getOptionLabel={x => x.name}
+                        />
                     </div>
                     <div className={'container__field_rating'}>
-                        <TextField label={'Рейтинг'} placeholder={'0'} onChange={(e) => setRating(e.target.value)}/>
+                        <TextField label={'Рейтинг'}
+                                   placeholder={'0'}
+                                   onChange={(e) => setRating(e.target.value)}/>
+                    </div>
+                    <div className={'container__field_age'}>
+                        <TextField label={'Возраст'}
+                                   placeholder={'0'}
+                                   onChange={(e) => setAge(e.target.value)}/>
                     </div>
                     <div className={'container__field_button button_width_long'}>
-                        <Button text={'Создать'}/>
+                        <Button text={'Создать'} onClick={() => sendForm()}/>
                     </div>
                 </section>
             </div>

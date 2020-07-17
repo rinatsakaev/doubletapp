@@ -218,12 +218,18 @@ a {
     &_rating {
       grid-row-start: 5;
     }
-
-    &_button {
+    &_age{
       grid-row-start: 6;
-      margin: 40px 0;
       @media (max-width: 380px) {
         grid-row-start: 8;
+      }
+    }
+
+    &_button {
+      grid-row-start: 7;
+      margin: 40px 0;
+      @media (max-width: 380px) {
+        grid-row-start: 9;
       }
     }
   }

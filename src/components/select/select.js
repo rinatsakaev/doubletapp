@@ -8,7 +8,8 @@ const DropdownIndicator = (props) => {
         </components.DropdownIndicator>
     );
 };
-export default function Select({placeholder, label, options, onChange}) {
+export default function Select({placeholder, label,
+                                   options, onChange, getOptionValue, getOptionLabel}) {
     return (
         <div className={"field field_length_medium"}>
             <p className={"field__label"}>{label}</p>
@@ -17,6 +18,8 @@ export default function Select({placeholder, label, options, onChange}) {
                          options={options}
                          components={{DropdownIndicator}}
                          onChange = {onChange}
+                         getOptionValue = {getOptionValue}
+                         getOptionLabel = {getOptionLabel}
             />
         </div>
     )

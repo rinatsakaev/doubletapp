@@ -67,7 +67,7 @@ function reducer(state, action) {
 
 export default function Index() {
     const [state, dispatch] = useReducer(reducer, {users: [], visibleUsers: []});
-    const [width, height] = useWindowSize();
+    const [width] = useWindowSize();
 
     useEffect(() => {
         ApiService.fetchUsers()
@@ -86,7 +86,7 @@ export default function Index() {
         {value: 'age', label: 'Возраст'},
         {value: 'rating', label: 'Рейтинг'},
     ];
-    let content = <Table data={state.visibleUsers}/>;
+
     return (
         <div>
             <Header/>

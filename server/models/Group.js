@@ -16,4 +16,3 @@ Group.init({
         allowNull: false
     }
 }, {sequelize});
-Group.belongsTo(Speciality);

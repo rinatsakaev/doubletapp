@@ -1,6 +1,7 @@
 import {Model} from 'sequelize';
 import {DataTypes} from 'sequelize';
 import sequelize from '../sequelizeConnection';
+import Group from './Group';
 
 export default class Speciality extends Model {
 }
@@ -19,3 +20,4 @@ Speciality.init({
     },
     {sequelize}
 );
+Speciality.hasMany(Group);

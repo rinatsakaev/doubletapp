@@ -8,14 +8,16 @@ const DropdownIndicator = (props) => {
         </components.DropdownIndicator>
     );
 };
-export default function Select({placeholder, label, options}) {
+export default function Select({placeholder, label, options, onChange}) {
     return (
         <div className={"field field_length_medium"}>
             <p className={"field__label"}>{label}</p>
             <ReactSelect styles={style}
                          placeholder={placeholder}
                          options={options}
-                         components={{DropdownIndicator}}/>
+                         components={{DropdownIndicator}}
+                         onChange = {onChange}
+            />
         </div>
     )
 }

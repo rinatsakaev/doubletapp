@@ -5,13 +5,15 @@ import Gender from '../models/Gender';
 import Speciality from '../models/Speciality';
 
 export async function getUsers(req, res) {
-    res.setHeader('Content-Type', 'application/json');
-    const users = await User.findAll({
+    const users = (await User.findAll({
         include: [{model: Color},
-            {model: Group,
-            include: Speciality},
+            {model: Group},
             {model: Gender}]
-    });
+    })).map(x => x.toJSON());
+    const specialities = await Speciality.findAll().map(x => x.toJSON());
+    for (let i = 0; i < users.length; i++)
+        users[i].Group.Speciality = specialities.find(x => x.id === users[i].Group.SpecialityId);
+
     res.json(users);
 }
 

@@ -84,10 +84,8 @@ a{
   margin: 0 auto;
   display: grid;
   &_page_main{
-    grid-template-areas:  "controls controls controls controls controls"
-    "title title title button button"
-    "search search search search sort"
-    "table table table table table";
+    margin-top: 75px;
+    grid-template-columns: 300px auto 340px;
   }
   &_page_create{
     grid-template-areas:  "controls controls"
@@ -98,25 +96,57 @@ a{
   }
   &__title{
     margin: 0;
+    grid-row-start: 1;
+    grid-column-start: 1;
+  }
+  &__button{
+    grid-row-start: 1;
+    grid-column-start: 3;
+  }
+  &__search{
+    grid-row-start: 2;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+  }
+  &__sort{
+    grid-row-start: 2;
+    grid-column-start: 3;
+    &_right{
+      float: right;
+    }
+  }
+  &__table{
+    grid-row-start: 3;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    margin-top: 32px;
   }
 }
 
 .field {
+  display: inline-block;
+  width: 100%;
+
   &_length {
     &_short{
-      width: 180px;
+      max-width: 180px;
     }
     &_medium {
-      width: 380px;
+      max-width: 380px;
     }
 
     &_long {
-      width: 980px;
+      max-width: 980px;
     }
   }
 
   &_type_search {
     position: relative;
+    max-width: 980px;
+    flex-shrink: 1;
   }
 
   &_type_search::before {

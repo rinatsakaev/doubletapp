@@ -7,6 +7,7 @@ import Button from '../components/button';
 import SearchField from '../components/search-field';
 import {Link} from 'react-router-dom';
 import SelectSort from '../components/select/select-sort';
+import Table from '../components/table';
 
 export default function Index() {
     const options = [
@@ -21,27 +22,30 @@ export default function Index() {
         <div>
             <Header/>
             <div className={'container container_page_main'}>
-                <section className={'controls-area'}>
-                </section>
-                <section className={'title-area'}>
-                    <h1 className={'container__title'}>Студенты</h1>
-                </section>
-                <section className={'button-area'}>
+                <h1 className={'container__title'}>Студенты</h1>
+                <section className={'container__button'}>
                     <Link to={'/create'}>
                         <Button buttonType={'plus'} text={'Добавить студента'}/>
                     </Link>
                 </section>
-                <section className={'search-area'}>
+                <section className={'container__search'}>
                     <SearchField/>
-                </section>
-                <section className={'sort-area'}>
                     <SelectSort options={options}
                                 defaultValue={options[0]}
                                 onChange={(e) => console.log(e)}
                     />
                 </section>
-                <section className={'table-area'}>
-
+                <section className={'container__table'}>
+                    <Table data={[
+                        {
+                            fullName: 'Иванов Иван Иванович',
+                            age: 21,
+                            rating: 99,
+                            speciality: 'Компьютерная безопасность',
+                            groupName: 'КБ-101',
+                            color: '#FFEEFF'
+                        }
+                    ]}/>
                 </section>
             </div>
         </div>

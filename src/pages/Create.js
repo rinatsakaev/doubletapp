@@ -65,7 +65,7 @@ export default class Create extends Component {
                         <div className={'container__field_rating'}>
                             <TextField label={'Рейтинг'} placeholder={'0'}/>
                         </div>
-                        <div className={'container__field_button'}>
+                        <div className={'container__field_button button_width_long'}>
                             <Button text={'Создать'}/>
                         </div>
                     </section>

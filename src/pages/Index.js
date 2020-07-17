@@ -24,7 +24,7 @@ export default function Index() {
             <Header/>
             <div className={'container container_page_main'}>
                 <h1 className={'container__title'}>Студенты</h1>
-                <section className={'container__button'}>
+                <section className={'container__button button_width_short'}>
                     <Link to={'/create'}>
                         <Button buttonType={'plus'} text={'Добавить студента'}/>
                     </Link>

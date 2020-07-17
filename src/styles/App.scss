@@ -91,12 +91,16 @@ a {
   max-width: 1180px;
   margin: 0 auto;
   display: grid;
+  @media (max-width: 380px) {
+    padding: 3%;
+  }
 
   &_page_main {
     margin-top: 75px;
     grid-template-columns: 300px auto 340px;
     @media (max-width: 380px) {
       grid-template-columns: 335px;
+      margin-top: 20px;
     }
   }
 
@@ -104,9 +108,13 @@ a {
     margin: 0;
     grid-row-start: 1;
     grid-column-start: 1;
+    @media (max-width: 380px) {
+      margin-bottom: 22px;
+    }
 
     &_page_create {
       grid-row-start: 2;
+      margin: 0;
     }
   }
 
@@ -129,6 +137,8 @@ a {
     margin-top: 40px;
     @media (max-width: 380px) {
       grid-row-start: 3;
+      grid-column-end: 1;
+      margin: 10px 0;
     }
   }
 
@@ -146,6 +156,12 @@ a {
     grid-column-start: 1;
     grid-column-end: 4;
     margin-top: 32px;
+    @media (max-width: 380px) {
+      grid-row-start: 4;
+      grid-column-start: 1;
+      grid-column-end: 1;
+      margin: 0;
+    }
   }
 
   &__controls {
@@ -240,6 +256,7 @@ a {
   &_type_search {
     position: relative;
     flex-shrink: 1;
+    height: 48px;
   }
 
   &_type_search::before {
@@ -535,8 +552,9 @@ a {
     margin-left: -1em;
   }
 }
+
 @media (max-width: 380px) {
-  .sort{
+  .sort {
     display: none;
   }
 }

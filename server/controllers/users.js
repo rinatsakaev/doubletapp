@@ -1,7 +1,17 @@
 import User from '../models/User';
+import Color from '../models/Color';
+import Group from '../models/Group';
+import Gender from '../models/Gender';
+import Speciality from '../models/Speciality';
 
 export async function getUsers(req, res) {
-    const users = await User.findAll();
+    res.setHeader('Content-Type', 'application/json');
+    const users = await User.findAll({
+        include: [{model: Color},
+            {model: Group,
+            include: Speciality},
+            {model: Gender}]
+    });
     res.json(users);
 }
 

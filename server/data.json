@@ -51,12 +51,36 @@
   ],
   "users": [
     {
-      "fullName": "Иванов Иван Иванович",
-      "rating": 97,
+      "fullName": "Артем Иванович",
+      "rating": 6,
+      "age": 24,
+      "ColorId": 1,
+      "GenderId": 1,
+      "GroupId": 3
+    },
+    {
+      "fullName": "Банан Иванович",
+      "rating": 37,
       "age": 20,
       "ColorId": 3,
       "GenderId": 1,
+      "GroupId": 2
+    },
+    {
+      "fullName": "Василий Иванович",
+      "rating": 25,
+      "age": 25,
+      "ColorId": 2,
+      "GenderId": 1,
       "GroupId": 3
+    },
+    {
+      "fullName": "Геннадий Иванович",
+      "rating": 97,
+      "age": 23,
+      "ColorId": 2,
+      "GenderId": 1,
+      "GroupId": 1
     }
   ]
 }

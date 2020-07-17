@@ -1,16 +1,82 @@
-import React, {Component} from 'react';
+import React, {Component, useEffect, useReducer} from 'react';
 
 import '../styles/App.scss';
-import Row from '../components/table-row';
 import Header from '../components/header';
 import Button from '../components/button';
 import SearchField from '../components/search-field';
 import {Link} from 'react-router-dom';
 import SelectSort from '../components/select/select-sort';
-import Table from '../components/table';
 import Card from '../components/card';
+import ApiService from '../services/apiService';
+import Table from '../components/table';
+
+function sortFunction(a, b, field) {
+    if (a[field] < b[field]) {
+        return -1;
+    }
+    if (a[field] > b[field]) {
+        return 1;
+    }
+    return 0;
+}
+
+function reducer(state, action) {
+    switch (action.type) {
+        case 'USERS_FETCHED':
+            const users = action.payload.map(x => ({
+                fullName: x.fullName,
+                age: x.age,
+                rating: x.rating,
+                speciality: x.Group.Speciality.name,
+                groupName: x.Group.name,
+                color: x.Color.color
+            }));
+            return {
+                ...state,
+                users,
+                visibleUsers: users
+            };
+        case 'SORT': {
+            const sortField = action.payload;
+            const newUsersArray = [].concat(state.users)
+                .filter(x => state.query ? x.fullName.startsWith(state.query) : true)
+                .sort((a, b) => sortFunction(a, b, sortField));
+            return {
+                ...state,
+                visibleUsers: newUsersArray,
+                sortField: sortField
+            };
+        }
+
+        case 'SEARCH':{
+            const query = action.payload;
+            const newUsersArray = [].concat(state.users)
+                .filter(x => x.fullName.startsWith(query))
+                .sort((a, b) => sortFunction(a, b, state.sortField));
+            return {
+                ...state,
+                visibleUsers: newUsersArray,
+                query
+            };
+        }
+        default:
+            return state;
+    }
+}
 
 export default function Index() {
+    const [state, dispatch] = useReducer(reducer, {users: [], visibleUsers: []});
+
+    useEffect(() => {
+        ApiService.fetchUsers()
+            .then(x => x.json())
+            .catch(x => console.log(x))
+            .then(x => dispatch({
+                type: 'USERS_FETCHED',
+                payload: x
+            }))
+    }, []);
+
     const options = [
         {value: 'fullName', label: 'Имя'},
         {value: 'groupName', label: 'Группа'},
@@ -30,23 +96,25 @@ export default function Index() {
                     </Link>
                 </section>
                 <section className={'container__search'}>
-                    <SearchField/>
+                    <SearchField onChange={(e) => dispatch({type: 'SEARCH', payload: e.target.value})}/>
                     <SelectSort options={options}
                                 defaultValue={options[0]}
-                                onChange={(e) => console.log(e)}
+                                onChange={(e) => dispatch({type: 'SORT', payload: e.value})}
                     />
                 </section>
                 <section className={'container__table'}>
-                    <Card user={
-                        {
-                            fullName: 'Иванов Иван Иванович',
-                            age: 21,
-                            rating: 99,
-                            speciality: 'Компьютерная безопасность',
-                            groupName: 'КБ-101',
-                            color: '#FFEEFF'
-                        }
-                    }/>
+                    {state.visibleUsers.length > 0 ? <Table data={state.visibleUsers}/> : 'Loading...'}
+
+                    {/*<Card user={*/}
+                    {/*    {*/}
+                    {/*        fullName: 'Иванов Иван Иванович',*/}
+                    {/*        age: 21,*/}
+                    {/*        rating: 99,*/}
+                    {/*        speciality: 'Компьютерная безопасность',*/}
+                    {/*        groupName: 'КБ-101',*/}
+                    {/*        color: '#FFEEFF'*/}
+                    {/*    }*/}
+                    {/*}/>*/}
                 </section>
             </div>
         </div>

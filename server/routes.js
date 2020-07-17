@@ -3,6 +3,7 @@ async function errorWrapper(req, res, func) {
     try{
         await func(req, res);
     } catch (e) {
+        console.log(e);
         res.sendStatus(500);
     }
 }

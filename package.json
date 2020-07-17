@@ -34,7 +34,9 @@
     "@babel/runtime": "^7.10.4",
     "body-parser": "latest",
     "copy-webpack-plugin": "^6.0.3",
+    "cors": "^2.8.5",
     "express": "latest",
+    "history": "latest",
     "pg": "^8.3.0",
     "pg-hstore": "^2.3.3",
     "react": "^16.13.1",
@@ -43,7 +45,6 @@
     "react-select": "^3.1.0",
     "react-table": "^7.2.2",
     "sass": "^1.26.10",
-    "sequelize": "^6.3.3",
-    "history": "latest"
+    "sequelize": "^6.3.3"
   }
 }

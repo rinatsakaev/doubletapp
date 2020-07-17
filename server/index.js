@@ -9,6 +9,8 @@ import User from './models/User';
 import routes from './routes';
 import bodyParser from 'body-parser';
 const app = express();
+const cors = require('cors');
+app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 routes(app);

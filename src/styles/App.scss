@@ -34,6 +34,7 @@ h1 {
 }
 a{
   text-decoration: none;
+  color: initial;
 }
 
 .header {
@@ -239,7 +240,7 @@ a{
   display: inline-flex;
   justify-content: center;
   align-items: center;
-
+  cursor: pointer;
   &__icon_plus {
     position: relative;
     display: block;
@@ -288,31 +289,6 @@ a{
   background: #FFFFFF;
   display: inline-flex;
   justify-content: center;
-}
-
-
-.controls-area{
-  grid-area: controls;
-}
-.title-area{
-  grid-area: title;
-}
-.button-area{
-  grid-area: button;
-  margin-bottom: 40px;
-}
-.search-area{
-  grid-area: search;
-  margin-bottom: 32px;
-}
-.sort-area{
-  grid-area: sort;
-}
-.table-area{
-  grid-area: table;
-}
-.avatar-area{
-  grid-area: avatar;
 }
 
 .users-table{
@@ -404,4 +380,61 @@ a{
   font-family: Geometria, serif;
   font-style: normal;
   font-weight: 500;
+  padding-left: 24px;
+  position: relative;
+  &::before{
+    width: 20px;
+    height: 16px;
+    display: inline-block;
+    position: absolute;
+    content: "";
+    left: 0;
+    background: url(/static/arrow-left.svg);
+  }
+}
+.card{
+  width: 335px;
+  height: 170px;
+  box-shadow: $shadow;
+  border-radius: 6px;
+  &__header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+  }
+  &__avatar{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  &__title{
+    margin: 0;
+  }
+  &__color{
+    width: 12px;
+    height: 12px;
+    display: inline-block;
+    border-radius: 50%;
+    margin-right: 13px;
+  }
+  &__rating{
+    display: inline-block;
+  }
+  &__star{
+    margin-right: 13px;
+  }
+  &__list{
+    padding-left: 80px;
+    list-style: none;
+  }
+  &__item::before {
+    content: "\2022";
+    color: #49C2E8;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+  }
 }

@@ -2,11 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f5b3edb3-3750-4417-98f5-ab8518bbdf94" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/card.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/static/arrow-left.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/static/star-icon.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/color-select.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/color-select.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/select/select.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/select/select.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/sort-button.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Create.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Create.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/styles/App.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/App.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -168,9 +169,21 @@
     </state>
     <state x="425" y="187" key="run.anything.popup/0.0.1536.824/0.-1920.1080.1880@0.0.1536.824" timestamp="1594898193017" />
     <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1594904738092" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1594795879213">
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1594967413869">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1594795879213" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1594967413869" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/components/card.js</url>
+          <line>25</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

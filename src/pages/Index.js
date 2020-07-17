@@ -8,6 +8,7 @@ import SearchField from '../components/search-field';
 import {Link} from 'react-router-dom';
 import SelectSort from '../components/select/select-sort';
 import Table from '../components/table';
+import Card from '../components/card';
 
 export default function Index() {
     const options = [
@@ -36,7 +37,7 @@ export default function Index() {
                     />
                 </section>
                 <section className={'container__table'}>
-                    <Table data={[
+                    <Card user={
                         {
                             fullName: 'Иванов Иван Иванович',
                             age: 21,
@@ -45,7 +46,7 @@ export default function Index() {
                             groupName: 'КБ-101',
                             color: '#FFEEFF'
                         }
-                    ]}/>
+                    }/>
                 </section>
             </div>
         </div>

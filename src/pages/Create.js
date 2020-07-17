@@ -8,26 +8,20 @@ import SearchField from '../components/search-field';
 import TextField from '../components/text-field';
 import Select from '../components/select/select';
 import ColorSelect from '../components/color-select';
+import {Link} from 'react-router-dom';
 
 export default class Create extends Component {
     render() {
-        const row = <Row user={{
-            fullName: 'Иванов Иван Иванович',
-            groupName: 'ФИИТ-101',
-            speciality: 'Компьютерная безопасность',
-            age: 21,
-            rating: 99,
-            color: '#FFEEFF',
-            avatar: '/static/avatars/orig.jpg'
-        }}/>;
         return (
             <div>
                 <Header/>
                 <div className={'container container_page_create'}>
                     <div className={'container__controls'}>
-                        <p className={'controls__title'}>
-                            Назад к списку студентов
-                        </p>
+                        <Link to={'/'}>
+                            <p className={'controls__title'}>
+                                Назад к списку студентов
+                            </p>
+                        </Link>
                     </div>
                     <h1 className={'container__title_page_create'}>Новый студент</h1>
                     <section className={'container__change-avatar'}>

@@ -12,7 +12,7 @@ export default function ColorSelect({onSelected, colors}) {
                onChange={(e) => onSelected(e.target.id)}/>
     </li>);
     return (
-        <div className={'color-select field_length_short'}>
+        <div className={'color-select field_length_medium'}>
             <TextField placeholder={'Выбрать'}
                        label={'Любимый цвет'}
                        isDisabled={true}

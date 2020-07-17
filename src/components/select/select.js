@@ -10,7 +10,7 @@ const DropdownIndicator = (props) => {
 };
 export default function Select({placeholder, label, options}) {
     return (
-        <div className={"field field_length_short"}>
+        <div className={"field field_length_medium"}>
             <p className={"field__label"}>{label}</p>
             <ReactSelect styles={style}
                          placeholder={placeholder}

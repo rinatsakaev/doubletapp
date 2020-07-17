@@ -24,13 +24,13 @@ export default class Create extends Component {
             <div>
                 <Header/>
                 <div className={'container container_page_create'}>
-                    <section className={'controls-area'}>
-
-                    </section>
-                    <section className={'title-area'}>
-                        <h1 className={'container__title'}>Новый студент</h1>
-                    </section>
-                    <section className={'avatar-area'}>
+                    <div className={'container__controls'}>
+                        <p className={'controls__title'}>
+                            Назад к списку студентов
+                        </p>
+                    </div>
+                    <h1 className={'container__title_page_create'}>Новый студент</h1>
+                    <section className={'container__change-avatar'}>
                         <div className={'change-avatar'}>
                             <img className={'change-avatar__image'}
                                  src={'./static/avatars/avatar'}/>
@@ -42,22 +42,38 @@ export default class Create extends Component {
                             </div>
                         </div>
                     </section>
-                    <section className={'fields-area'}>
-                        {/*<TextField label={'ФИО'} placeholder={'Имя'}/>*/}
-                        {/*<TextField label={'Email'} placeholder={'Email'}/>*/}
-                        {/*<Select placeholder={'Выбрать'} label={'Специальность'}/>*/}
-                        {/*<Select placeholder={'Выбрать'} label={'Группа'}/>*/}
-                        {/*<TextField label={'Рейтинг'} placeholder={'0'}/>*/}
-                        {/*<Select placeholder={'Мужской'} label={'Пол'}/>*/}
-                        {/*<ColorSelect onSelected={(id) => console.log(id)} colors={[*/}
-                        {/*    {id: 1,*/}
-                        {/*        color: "blue"},*/}
-                        {/*    {id: 2,*/}
-                        {/*        color: "red"},*/}
-                        {/*    {id: 3,*/}
-                        {/*        color:"yellow"}*/}
-                        {/*]}/>*/}
-                        {/*<MySelect/>*/}
+                    <section className={'container__fields'}>
+                        <div className={'container__field_name'}>
+                            <TextField label={'ФИО'} placeholder={'Имя'}/>
+                        </div>
+                        <div className={'container__field_gender'}>
+                            <Select placeholder={'Мужской'} label={'Пол'}/>
+                        </div>
+                        <div className={'container__field_email'}>
+                            <TextField label={'Email'} placeholder={'Email'}/>
+                        </div>
+                        <div className={'container__field_color'}>
+                            <ColorSelect onSelected={(id) => console.log(id)} colors={[
+                                {id: 1,
+                                    color: "blue"},
+                                {id: 2,
+                                    color: "red"},
+                                {id: 3,
+                                    color:"yellow"}
+                            ]}/>
+                        </div>
+                        <div className={'container__field_speciality'}>
+                            <Select placeholder={'Выбрать'} label={'Специальность'}/>
+                        </div>
+                        <div className={'container__field_group'}>
+                            <Select placeholder={'Выбрать'} label={'Группа'}/>
+                        </div>
+                        <div className={'container__field_rating'}>
+                            <TextField label={'Рейтинг'} placeholder={'0'}/>
+                        </div>
+                        <div className={'container__field_button'}>
+                            <Button text={'Создать'}/>
+                        </div>
                     </section>
                 </div>
             </div>

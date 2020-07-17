@@ -87,17 +87,14 @@ a{
     margin-top: 75px;
     grid-template-columns: 300px auto 340px;
   }
-  &_page_create{
-    grid-template-areas:  "controls controls"
-    "title title"
-    "avatar avatar"
-    "fields fields"
-    "save-button .";
-  }
+
   &__title{
     margin: 0;
     grid-row-start: 1;
     grid-column-start: 1;
+    &_page_create{
+      grid-row-start: 2;
+    }
   }
   &__button{
     grid-row-start: 1;
@@ -123,6 +120,45 @@ a{
     grid-column-start: 1;
     grid-column-end: 4;
     margin-top: 32px;
+  }
+  &__controls{
+    grid-row-start: 1;
+  }
+  &__change-avatar{
+    grid-row-start: 3;
+  }
+  &__fields{
+    grid-row-start: 4;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    max-width: 860px;
+  }
+  &__field{
+    &_name{
+      grid-row-start: 1;
+    }
+    &_email{
+      grid-row-start: 2;
+    }
+    &_gender{
+      grid-column-start: 2;
+    }
+    &_color{
+      grid-column-start: 2;
+    }
+    &_speciality{
+      grid-row-start: 3;
+    }
+    &_group{
+      grid-row-start: 4;
+    }
+    &_rating{
+      grid-row-start: 5;
+    }
+    &_button{
+      grid-row-start: 6;
+      margin: 40px 0;
+    }
   }
 }
 
@@ -326,6 +362,9 @@ a{
     box-shadow: $shadow;
     border-radius: 6px;
     padding: 20px 25px;
+    position: absolute;
+    width: 380px;
+    box-sizing: border-box
   }
   &__input{
     display: none;
@@ -360,4 +399,9 @@ a{
     text-decoration: underline;
     cursor: pointer;
   }
+}
+.controls__title{
+  font-family: Geometria, serif;
+  font-style: normal;
+  font-weight: 500;
 }

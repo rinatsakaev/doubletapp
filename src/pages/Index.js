@@ -9,6 +9,7 @@ import SelectSort from '../components/select/select-sort';
 import Card from '../components/card';
 import ApiService from '../services/apiService';
 import Table from '../components/table';
+import useWindowSize from '../hooks/use-window-size';
 
 function sortFunction(a, b, field) {
     if (a[field] < b[field]) {
@@ -48,7 +49,7 @@ function reducer(state, action) {
             };
         }
 
-        case 'SEARCH':{
+        case 'SEARCH': {
             const query = action.payload;
             const newUsersArray = [].concat(state.users)
                 .filter(x => x.fullName.startsWith(query))
@@ -66,6 +67,7 @@ function reducer(state, action) {
 
 export default function Index() {
     const [state, dispatch] = useReducer(reducer, {users: [], visibleUsers: []});
+    const [width, height] = useWindowSize();
 
     useEffect(() => {
         ApiService.fetchUsers()
@@ -84,7 +86,7 @@ export default function Index() {
         {value: 'age', label: 'Возраст'},
         {value: 'rating', label: 'Рейтинг'},
     ];
-
+    let content = <Table data={state.visibleUsers}/>;
     return (
         <div>
             <Header/>
@@ -103,18 +105,10 @@ export default function Index() {
                     />
                 </section>
                 <section className={'container__table'}>
-                    {state.visibleUsers.length > 0 ? <Table data={state.visibleUsers}/> : 'Loading...'}
-
-                    {/*<Card user={*/}
-                    {/*    {*/}
-                    {/*        fullName: 'Иванов Иван Иванович',*/}
-                    {/*        age: 21,*/}
-                    {/*        rating: 99,*/}
-                    {/*        speciality: 'Компьютерная безопасность',*/}
-                    {/*        groupName: 'КБ-101',*/}
-                    {/*        color: '#FFEEFF'*/}
-                    {/*    }*/}
-                    {/*}/>*/}
+                    {width > 380 ?
+                        state.visibleUsers.length > 0 ? <Table data={state.visibleUsers}/> : 'Loading...' :
+                        state.visibleUsers.length > 0 ? state.visibleUsers.map(x => <Card user={x}/>) : 'Loading...'
+                    }
                 </section>
             </div>
         </div>

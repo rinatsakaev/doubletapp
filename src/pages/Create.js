@@ -49,7 +49,7 @@ export default function Create() {
 
     const handleInputChange = (event) => {
         event.persist();
-        if (event.target.type === 'file'){
+        if (event.target.type === 'file') {
             setFormState((prev) => ({
                 ...prev,
                 'avatar': event.target.files[0]
@@ -84,7 +84,7 @@ export default function Create() {
                     <section className={'container__change-avatar'}>
                         <div className={'change-avatar'}>
                             <img className={'change-avatar__image'}
-                                 src={preview}/>
+                                 src={preview ? preview.url : null}/>
                             <div className={'change-avatar__container'}>
                                 <label className={'change-avatar__label'} htmlFor={'avatar-input'}>Сменить
                                     аватар</label>
@@ -93,7 +93,8 @@ export default function Create() {
                                        id={'avatar-input'}
                                        name={'avatar'}
                                 />
-                                {preview?<p className={'change-avatar__size'}>{preview.width}x{preview.height}</p>:null}
+                                {preview ?
+                                    <p className={'change-avatar__size'}>{preview.width}x{preview.height}</p> : null}
 
                             </div>
                         </div>
@@ -125,12 +126,18 @@ export default function Create() {
                             />
                         </div>
                         <div className={'container__field_color'}>
-                            <ColorSelect colors={colors}/>
+                            <ColorSelect colors={colors}
+                                         onChange={(id) => {
+                                             setFormState((prev) => ({
+                                                 ...prev,
+                                                 ColorId: id
+                                             }))
+                                         }}/>
                         </div>
                         <div className={'container__field_speciality'}>
                             <Select placeholder={'Выбрать'}
                                     label={'Специальность'}
-                                    onChange={(x) =>{
+                                    onChange={(x) => {
                                         setSpeciality(x);
                                         setFormState((prev) => ({
                                             ...prev,

@@ -14,7 +14,7 @@ export async function getUsers(req, res) {
     for (let i = 0; i < users.length; i++)
         users[i].Group.Speciality = specialities.find(x => x.id === users[i].Group.SpecialityId);
 
-    res.json(users);
+    return res.json(users);
 }
 
 export async function createUser(req, res) {
@@ -22,23 +22,24 @@ export async function createUser(req, res) {
     const result = await User.create(req.body);
     if (req.files){
         const extension = req.files.avatar.name.split('.').pop();
-        req.files.avatar.mv(`./static/avatars/${result.id}.${extension}`)
+        req.files.avatar.mv(`./static/avatars/`)
             .then(res.sendStatus(200))
             .catch(x => console.log(x));
+        return;
     }
-    res.sendStatus(200);
+    return res.sendStatus(200);
 }
 
 export async function deleteUser(req, res) {
     const user = await User.findByPk(req.params.id);
     if (!user)
-        res.sendStatus(404);
+        return res.sendStatus(404);
 
     await user.destroy();
-    res.sendStatus(200);
+    return res.sendStatus(200);
 }
 
 export async function getUser(req, res) {
     const user = await User.findByPk(req.params.id);
-    res.json(user);
+    return res.json(user);
 }

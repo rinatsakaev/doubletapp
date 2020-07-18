@@ -442,7 +442,9 @@ a {
     padding: 20px 25px;
     position: absolute;
     width: 380px;
-    box-sizing: border-box
+    box-sizing: border-box;
+    background: #FFFFFF;
+    z-index: 1;
   }
 
   &__input {

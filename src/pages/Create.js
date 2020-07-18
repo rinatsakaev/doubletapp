@@ -1,16 +1,13 @@
-import React, {Component, useEffect, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 
 import '../styles/App.scss';
-import Row from '../components/table-row';
 import Header from '../components/header';
 import Button from '../components/button';
-import SearchField from '../components/search-field';
 import TextField from '../components/text-field';
 import Select from '../components/select/select';
 import ColorSelect from '../components/color-select';
 import {Link} from 'react-router-dom';
 import ApiService from '../services/apiService';
-import Redirect from 'react-router-dom/es/Redirect';
 
 export default function Create() {
     const [groups, setGroups] = useState([]);
@@ -57,7 +54,12 @@ export default function Create() {
                 ...prev,
                 'avatar': event.target.files[0]
             }));
-            setPreview(URL.createObjectURL(event.target.files[0]));
+            const blob = URL.createObjectURL(event.target.files[0]);
+            const img = new Image();
+            img.onload = () => {
+                setPreview({url: blob, width: img.width, height: img.height});
+            };
+            img.src = blob;
             return;
         }
         setFormState((prev) => ({
@@ -91,7 +93,8 @@ export default function Create() {
                                        id={'avatar-input'}
                                        name={'avatar'}
                                 />
-                                <p className={'change-avatar__size'}>500x500</p>
+                                {preview?<p className={'change-avatar__size'}>{preview.width}x{preview.height}</p>:null}
+
                             </div>
                         </div>
                     </section>

@@ -7,12 +7,14 @@ import Color from './models/Color';
 import Gender from './models/Gender';
 import User from './models/User';
 import routes from './routes';
+import fileUpload from 'express-fileupload';
 import bodyParser from 'body-parser';
 const app = express();
 const cors = require('cors');
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(fileUpload());
 routes(app);
 sequelizeConnection.authenticate()
     .then(() => sequelizeConnection.sync({force: true}))

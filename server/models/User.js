@@ -5,7 +5,8 @@ import Group from './Group';
 import Color from './Color';
 import Gender from './Gender';
 
-export default class User extends Model {}
+export default class User extends Model {
+}
 
 User.init({
     id: {
@@ -26,7 +27,7 @@ User.init({
         type: Sequelize.INTEGER,
         allowNull: false
     },
-    avatar:{
+    avatar: {
         type: Sequelize.STRING
     }
 }, {sequelize});

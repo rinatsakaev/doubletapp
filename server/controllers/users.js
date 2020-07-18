@@ -3,7 +3,7 @@ import Color from '../models/Color';
 import Group from '../models/Group';
 import Gender from '../models/Gender';
 import Speciality from '../models/Speciality';
-
+import path from 'path';
 export async function getUsers(req, res) {
     const users = (await User.findAll({
         include: [{model: Color},
@@ -18,7 +18,14 @@ export async function getUsers(req, res) {
 }
 
 export async function createUser(req, res) {
-    await User.create(req.body);
+    console.log(__dirname);
+    const result = await User.create(req.body);
+    if (req.files){
+        const extension = req.files.avatar.name.split('.').pop();
+        req.files.avatar.mv(`./static/avatars/${result.id}.${extension}`)
+            .then(res.sendStatus(200))
+            .catch(x => console.log(x));
+    }
     res.sendStatus(200);
 }
 

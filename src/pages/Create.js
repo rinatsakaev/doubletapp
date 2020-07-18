@@ -13,18 +13,14 @@ import ApiService from '../services/apiService';
 import Redirect from 'react-router-dom/es/Redirect';
 
 export default function Create() {
-    const [selectedColor, setSelectedColor] = useState(undefined);
-    const [fullName, setFullName] = useState('');
-    const [gender, setGender] = useState(undefined);
-    const [email, setEmail] = useState('');
-    const [speciality, setSpeciality] = useState(undefined);
-    const [group, setGroup] = useState(undefined);
-    const [rating, setRating] = useState(undefined);
     const [groups, setGroups] = useState([]);
     const [specialities, setSpecialities] = useState([]);
     const [colors, setColors] = useState([]);
     const [genders, setGenders] = useState([]);
-    const [age, setAge] = useState(undefined);
+    const [speciality, setSpeciality] = useState(undefined);
+    const [formState, setFormState] = useState({});
+    const [preview, setPreview] = useState();
+
     useEffect(() => {
         ApiService.fetchColors()
             .then(x => x.json())
@@ -46,17 +42,28 @@ export default function Create() {
     }, [speciality]);
 
     const sendForm = () => {
-        const newUser = {
-            fullName,
-            GenderId: gender,
-            rating,
-            GroupId: group,
-            email,
-            age
-        };
-        ApiService.createUser(newUser)
-            .then(() => <Redirect to="/"/>)
+        const formData = new FormData();
+        for (const [key, value] of Object.entries(formState))
+            formData.append(key, value);
+
+        ApiService.createUser(formData)
             .catch(x => console.log(x));
+    };
+
+    const handleInputChange = (event) => {
+        event.persist();
+        if (event.target.type === 'file'){
+            setFormState((prev) => ({
+                ...prev,
+                'avatar': event.target.files[0]
+            }));
+            setPreview(URL.createObjectURL(event.target.files[0]));
+            return;
+        }
+        setFormState((prev) => ({
+            ...prev,
+            [event.target.name]: event.target.value
+        }));
     };
 
     return (
@@ -71,71 +78,99 @@ export default function Create() {
                     </Link>
                 </div>
                 <h1 className={'container__title_page_create'}>Новый студент</h1>
-                <section className={'container__change-avatar'}>
-                    <div className={'change-avatar'}>
-                        <img className={'change-avatar__image'}
-                             src={'./static/avatars/avatar'}/>
-                        <div className={'change-avatar__container'}>
-                            <label className={'change-avatar__label'} htmlFor={'avatar-input'}>Сменить
-                                аватар</label>
-                            <input type={'file'} className={'change-avatar__input'} id={'avatar-input'}/>
-                            <p className={'change-avatar__size'}>500x500</p>
+                <form onChange={handleInputChange}>
+                    <section className={'container__change-avatar'}>
+                        <div className={'change-avatar'}>
+                            <img className={'change-avatar__image'}
+                                 src={preview}/>
+                            <div className={'change-avatar__container'}>
+                                <label className={'change-avatar__label'} htmlFor={'avatar-input'}>Сменить
+                                    аватар</label>
+                                <input type={'file'}
+                                       className={'change-avatar__input'}
+                                       id={'avatar-input'}
+                                       name={'avatar'}
+                                />
+                                <p className={'change-avatar__size'}>500x500</p>
+                            </div>
                         </div>
-                    </div>
-                </section>
-                <section className={'container__fields'}>
-                    <div className={'container__field_name'}>
-                        <TextField label={'ФИО'} placeholder={'Имя'} onChange={(e) => setFullName(e.target.value)}/>
-                    </div>
-                    <div className={'container__field_gender'}>
-                        <Select placeholder={'Выбрать'}
-                                label={'Пол'}
-                                onChange={(e) => setGender(e.id)}
-                                options={genders}
-                                getOptionValue={x => x.id}
-                                getOptionLabel={x => x.name}
-                        />
-                    </div>
-                    <div className={'container__field_email'}>
-                        <TextField label={'Email'}
-                                   placeholder={'Email'}
-                                   onChange={(e) => setEmail(e.target.value)}/>
-                    </div>
-                    <div className={'container__field_color'}>
-                        <ColorSelect onSelected={setSelectedColor} colors={colors}/>
-                    </div>
-                    <div className={'container__field_speciality'}>
-                        <Select placeholder={'Выбрать'}
-                                label={'Специальность'}
-                                onChange={(e) => setSpeciality(e)}
-                                options={specialities}
-                                getOptionValue={x => x.id}
-                                getOptionLabel={x => x.name}
-                        />
-                    </div>
-                    <div className={'container__field_group'}>
-                        <Select placeholder={'Выбрать'}
-                                label={'Группа'}
-                                onChange={(e) => setGroup(e.id)}
-                                options={groups}
-                                getOptionValue={x => x.id}
-                                getOptionLabel={x => x.name}
-                        />
-                    </div>
-                    <div className={'container__field_rating'}>
-                        <TextField label={'Рейтинг'}
-                                   placeholder={'0'}
-                                   onChange={(e) => setRating(e.target.value)}/>
-                    </div>
-                    <div className={'container__field_age'}>
-                        <TextField label={'Возраст'}
-                                   placeholder={'0'}
-                                   onChange={(e) => setAge(e.target.value)}/>
-                    </div>
-                    <div className={'container__field_button button_width_long'}>
-                        <Button text={'Создать'} onClick={() => sendForm()}/>
-                    </div>
-                </section>
+                    </section>
+                    <section className={'container__fields'}>
+                        <div className={'container__field_name'}>
+                            <TextField label={'ФИО'}
+                                       placeholder={'Имя'}
+                                       name={'fullName'}/>
+                        </div>
+                        <div className={'container__field_gender'}>
+                            <Select placeholder={'Выбрать'}
+                                    label={'Пол'}
+                                    options={genders}
+                                    onChange={(x) =>
+                                        setFormState((prev) => ({
+                                            ...prev,
+                                            GenderId: x.id
+                                        }))}
+                                    getOptionValue={x => x.id}
+                                    getOptionLabel={x => x.name}
+                                    name={'gender'}
+                            />
+                        </div>
+                        <div className={'container__field_email'}>
+                            <TextField label={'Email'}
+                                       placeholder={'Email'}
+                                       name={'email'}
+                            />
+                        </div>
+                        <div className={'container__field_color'}>
+                            <ColorSelect colors={colors}/>
+                        </div>
+                        <div className={'container__field_speciality'}>
+                            <Select placeholder={'Выбрать'}
+                                    label={'Специальность'}
+                                    onChange={(x) =>{
+                                        setSpeciality(x);
+                                        setFormState((prev) => ({
+                                            ...prev,
+                                            SpecialityId: x.id
+                                        }))
+                                    }}
+                                    options={specialities}
+                                    getOptionValue={x => x.id}
+                                    getOptionLabel={x => x.name}
+                                    name={'speciality'}
+                            />
+                        </div>
+                        <div className={'container__field_group'}>
+                            <Select placeholder={'Выбрать'}
+                                    label={'Группа'}
+                                    options={groups}
+                                    onChange={(x) =>
+                                        setFormState((prev) => ({
+                                            ...prev,
+                                            GroupId: x.id
+                                        }))}
+                                    getOptionValue={x => x.id}
+                                    getOptionLabel={x => x.name}
+                                    name={'group'}
+                            />
+                        </div>
+                        <div className={'container__field_rating'}>
+                            <TextField label={'Рейтинг'}
+                                       placeholder={'0'}
+                                       name={'rating'}
+                            />
+                        </div>
+                        <div className={'container__field_age'}>
+                            <TextField label={'Возраст'}
+                                       placeholder={'0'}
+                                       name={'age'}
+                            />
+                        </div>
+                        <div className={'container__field_button button_width_long'}>
+                            <Button text={'Создать'} onClick={() => sendForm()}/>
+                        </div>
+                    </section>
+                </form>
             </div>
         </div>
     );

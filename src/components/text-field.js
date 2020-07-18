@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function TextField({label, placeholder, isDisabled=false, iconClass, onClick, onChange}) {
+export default function TextField({label, placeholder, isDisabled=false, iconClass, onClick, onChange, name}) {
     return (
         <div className={"field field_length_medium"}>
             <p className={"field__label"}>{label}</p>
@@ -10,6 +10,7 @@ export default function TextField({label, placeholder, isDisabled=false, iconCla
                        placeholder={placeholder}
                        disabled={isDisabled}
                        onChange={onChange}
+                       name={name}
                 />
             </div>
         </div>

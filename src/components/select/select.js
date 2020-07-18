@@ -9,7 +9,7 @@ const DropdownIndicator = (props) => {
     );
 };
 export default function Select({placeholder, label,
-                                   options, onChange, getOptionValue, getOptionLabel}) {
+                                   options, onChange, getOptionValue, getOptionLabel, name}) {
     return (
         <div className={"field field_length_medium"}>
             <p className={"field__label"}>{label}</p>
@@ -20,6 +20,7 @@ export default function Select({placeholder, label,
                          onChange = {onChange}
                          getOptionValue = {getOptionValue}
                          getOptionLabel = {getOptionLabel}
+                         name={name}
             />
         </div>
     )

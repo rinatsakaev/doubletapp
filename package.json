@@ -36,6 +36,7 @@
     "copy-webpack-plugin": "^6.0.3",
     "cors": "^2.8.5",
     "express": "latest",
+    "express-fileupload": "^1.1.7-alpha.4",
     "history": "latest",
     "pg": "^8.3.0",
     "pg-hstore": "^2.3.3",

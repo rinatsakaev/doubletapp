@@ -7,7 +7,10 @@
     "startclient": "webpack-dev-server --mode=development --open --config ./webpack.client.config.js",
     "startserver": "webpack --mode=development --config ./webpack.server.config.js && node ./dist-server/index_bundle.js",
     "build": "webpack --mode production --config ./webpack.client.config.js",
-    "start": "concurrently --kill-others \"npm run startserver\" \"npm run startclient\""
+    "start": "concurrently --kill-others \"npm run startserver\" \"npm run startclient\"",
+    "prod-client": "webpack -p --config ./webpack.client.config.js --progress",
+    "prod-server": "webpack -p --config ./webpack.server.config.js --progress",
+    "heroku-postbuild": "concurrently --kill-others \"npm run prod-client\" \"npm run prod-server\""
   },
   "keywords": [],
   "author": "",

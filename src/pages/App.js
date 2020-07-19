@@ -7,7 +7,6 @@ import '../styles/App.scss';
 class App extends Component {
   render() {
     const { history } = this.props;
-
     return (
       <div className="App">
         <Switch>

@@ -5,7 +5,7 @@ export default function ColorSelect({ onChange, colors }) {
   const [selectedColor, setSelectedColor] = useState();
   const listItems = colors.map((x) => (
     <li className="color-select__item" key={x.id}>
-      <label className="color-select__label" htmlFor={x.id} style={{ background: x.color }} />
+      <label className="color-select__label" htmlFor={x.id} style={{ background: x.color, backgroundSize:"100%"}} />
       <input
         className="color-select__input"
         type="radio"
@@ -27,7 +27,7 @@ export default function ColorSelect({ onChange, colors }) {
       <div
         className="field__container field__icon_dropdown"
         onClick={() => setIsExpanded(!isExpanded)}>
-        <div className="color-select__color" style={{ background: selectedColor }}/>
+        <div className="color-select__color" style={{ background: selectedColor, backgroundSize:"100%" }}/>
         <input
           className="field__input"
           type="text"

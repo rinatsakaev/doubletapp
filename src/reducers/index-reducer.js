@@ -16,6 +16,12 @@ function getVisibleUsers({ users, query, sortField }) {
 
 export default function reducer(state, action) {
   switch (action.type) {
+    case 'USERS_LOADING':{
+      return {
+        ...state,
+        isLoading: true
+      }
+    }
     case 'USERS_FETCHED': {
       const users = action.payload.map((x) => ({
         id: x.id,
@@ -25,12 +31,14 @@ export default function reducer(state, action) {
         speciality: x.Group.Speciality.name,
         groupName: x.Group.name,
         color: x.Color.color,
+        avatar: x.avatar
       })).sort((a, b) => sortFunction(a, b, 'fullName'));
 
       return {
         ...state,
         users,
         visibleUsers: users,
+        isLoading: false
       };
     }
 

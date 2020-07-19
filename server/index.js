@@ -9,13 +9,16 @@ import User from './models/User';
 import routes from './routes';
 import fileUpload from 'express-fileupload';
 import bodyParser from 'body-parser';
+import path from 'path';
 const app = express();
 const cors = require('cors');
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(fileUpload());
+app.use(express.static(path.join(__dirname, 'static')));
 routes(app);
+console.log("DIRNAME", path.resolve(__dirname));
 sequelizeConnection.authenticate()
     .then(() => sequelizeConnection.sync({force: true}))
     .then(() => {

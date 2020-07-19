@@ -73,7 +73,7 @@ export default function Create() {
   if (isRedirected)  return <Redirect to="/"/>; 
 
   return (
-    <div>
+    <React.Fragment>
       <Header />
       <div className="container container_page_create">
         <div className="container__controls">
@@ -174,6 +174,6 @@ export default function Create() {
           </section>
         </form>
       </div>
-    </div>
+    </React.Fragment>
   );
 }

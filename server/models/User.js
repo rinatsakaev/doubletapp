@@ -28,7 +28,8 @@ User.init({
         allowNull: false
     },
     avatar: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        defaultValue: 'default.png'
     }
 }, {sequelize});
 

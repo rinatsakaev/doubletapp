@@ -18,14 +18,13 @@ export async function getUsers(req, res) {
 }
 
 export async function createUser(req, res) {
-    console.log(__dirname);
     const result = await User.create(req.body);
     if (req.files){
         const extension = req.files.avatar.name.split('.').pop();
-        req.files.avatar.mv(`./static/avatars/`)
-            .then(res.sendStatus(200))
-            .catch(x => console.log(x));
-        return;
+        const fileName = `${result.id}.${extension}`;
+        await req.files.avatar.mv(`./server/static/avatars/${fileName}`);
+        const user = await User.findOne({where: {id: result.id}});
+        await user.update({avatar: fileName});
     }
     return res.sendStatus(200);
 }

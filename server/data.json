@@ -47,7 +47,7 @@
     {"color": "#F7FB53"},
     {"color": "#000000"},
     {"color": "#EFA638"},
-    {"color": "url(lgbt.jpg)"}
+    {"color": "url(http://127.0.0.1:9090/lgbt.jpg)"}
   ],
   "users": [
     {

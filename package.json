@@ -6,7 +6,8 @@
   "scripts": {
     "startclient": "webpack-dev-server --mode=development --open --config ./webpack.client.config.js",
     "startserver": "webpack --mode=development --config ./webpack.server.config.js && node ./dist-server/index_bundle.js",
-    "build": "webpack --mode production --config ./webpack.client.config.js"
+    "build": "webpack --mode production --config ./webpack.client.config.js",
+    "start": "concurrently --kill-others \"npm run startserver\" \"npm run startclient\""
   },
   "keywords": [],
   "author": "",

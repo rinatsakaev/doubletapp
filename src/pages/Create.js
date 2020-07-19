@@ -34,12 +34,12 @@ export default function Create() {
   }, []);
 
   useEffect(() => {
-    if (speciality) { setGroups(speciality.Groups); }
+    if (speciality)  setGroups(speciality.Groups); 
   }, [speciality]);
 
   const sendForm = () => {
     const formData = new FormData();
-    for (const [key, value] of Object.entries(formState)) { formData.append(key, value); }
+    for (const [key, value] of Object.entries(formState))  formData.append(key, value); 
 
     ApiService.createUser(formData)
       .then(() => setIsRedirected(true))
@@ -58,15 +58,19 @@ export default function Create() {
       img.onload = () => {
         setPreview({ url: blob, width: img.width, height: img.height });
       };
+
       img.src = blob;
+
       return;
     }
+
     setFormState((prev) => ({
       ...prev,
       [event.target.name]: event.target.value,
     }));
   };
-  if (isRedirected) { return <Redirect to="/"/>; }
+
+  if (isRedirected)  return <Redirect to="/"/>; 
 
   return (
     <div>

@@ -61,7 +61,7 @@ export default function Index() {
             ? state.visibleUsers.length > 0
               ? <Table data={state.visibleUsers} onDelete={onDelete}/> : 'Loading...'
             : state.visibleUsers.length > 0
-              ? state.visibleUsers.map((x) => <Card user={x} onDelete={onDelete}/>) : 'Loading...'}
+              ? state.visibleUsers.map((x) => <Card user={x} onDelete={onDelete} key={x.id}/>) : 'Loading...'}
         </section>
       </div>
     </div>

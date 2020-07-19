@@ -1,10 +1,10 @@
 function sortFunction(a, b, field) {
-  if (a[field] < b[field]) {
+  if (a[field] < b[field]) 
     return -1;
-  }
-  if (a[field] > b[field]) {
+  
+  if (a[field] > b[field]) 
     return 1;
-  }
+  
   return 0;
 }
 
@@ -16,7 +16,7 @@ function getVisibleUsers({ users, query, sortField }) {
 
 export default function reducer(state, action) {
   switch (action.type) {
-    case 'USERS_FETCHED':
+    case 'USERS_FETCHED': {
       const users = action.payload.map((x) => ({
         id: x.id,
         fullName: x.fullName,
@@ -26,11 +26,14 @@ export default function reducer(state, action) {
         groupName: x.Group.name,
         color: x.Color.color,
       })).sort((a, b) => sortFunction(a, b, 'fullName'));
+
       return {
         ...state,
         users,
         visibleUsers: users,
       };
+    }
+
     case 'SORT': {
       const visibleUsers = getVisibleUsers(
         {
@@ -39,6 +42,7 @@ export default function reducer(state, action) {
           sortField: action.payload,
         },
       );
+
       return {
         ...state,
         visibleUsers,
@@ -52,6 +56,7 @@ export default function reducer(state, action) {
         query: action.payload,
         sortField: state.sortField,
       });
+
       return {
         ...state,
         visibleUsers,
@@ -68,6 +73,7 @@ export default function reducer(state, action) {
         query: state.query,
         sortField: state.sortField,
       });
+
       return {
         ...state,
         users,

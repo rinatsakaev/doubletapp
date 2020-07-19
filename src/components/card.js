@@ -3,7 +3,7 @@ import BucketIcon from './bucket-icon';
 
 export default function Card({ user, onDelete }) {
   return (
-    <div className="card" key={user.id}>
+    <div className="card">
       <div className="card__header">
         <img className="card__avatar" src={user.avatar}/>
         <div className="card__data">

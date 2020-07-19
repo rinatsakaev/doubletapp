@@ -1,17 +1,17 @@
 export default {
-  container: (provided, state) => ({
+  container: (provided) => ({
     ...provided,
     fontFamily: '\'Geometria\', sans-serif',
     fontWeight: 'normal',
     fontSize: '16px',
   }),
-  control: (provided, state) => ({
+  control: (provided) => ({
     ...provided,
     height: '48px',
     boxShadow: '0px 7px 64px rgba(0, 0, 0, 0.07)',
     border: 'none',
   }),
-  menu: (provided, state) => ({
+  menu: (provided) => ({
     ...provided,
     padding: '16px 11px',
     boxShadow: '0px 7px 64px rgba(0, 0, 0, 0.07)',
@@ -27,7 +27,7 @@ export default {
   indicatorSeparator: () => ({
     display: 'none',
   }),
-  dropdownIndicator: (provided, state) => ({
+  dropdownIndicator: (provided) => ({
     ...provided,
     paddingRight: '22px',
   }),

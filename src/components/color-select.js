@@ -4,7 +4,7 @@ export default function ColorSelect({ onChange, colors }) {
   const [isExpanded, setIsExpanded] = useState(false);
   const [selectedColor, setSelectedColor] = useState();
   const listItems = colors.map((x) => (
-    <li className="color-select__item">
+    <li className="color-select__item" key={x.id}>
       <label className="color-select__label" htmlFor={x.id} style={{ background: x.color }} />
       <input
         className="color-select__input"
@@ -20,6 +20,7 @@ export default function ColorSelect({ onChange, colors }) {
       />
     </li>
   ));
+
   return (
     <div className="color-select field_length_medium">
       <p className="field__label">Любимый цвет</p>

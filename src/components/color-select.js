@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import TextField from './text-field';
 
 export default function ColorSelect({onChange, colors}) {
     const [isExpanded, setIsExpanded] = useState(false);
@@ -13,17 +12,22 @@ export default function ColorSelect({onChange, colors}) {
                onChange={(e) => {
                    setIsExpanded(false);
                    onChange(e.target.id);
-                   setSelectedColor(e.target.id);
+                   const color = colors.find(x => x.id === parseInt(e.target.id));
+                   setSelectedColor(color.color);
                }}/>
     </li>);
     return (
         <div className={'color-select field_length_medium'}>
-            <TextField placeholder={'Выбрать'}
-                       label={'Любимый цвет'}
-                       isDisabled={true}
-                       iconClass={'field__icon_dropdown'}
-                       onClick={() => setIsExpanded((prev) => !prev)}
-            />
+            <p className={'field__label'}>Любимый цвет</p>
+            <div className={`field__container field__icon_dropdown`}
+                 onClick={() => setIsExpanded(!isExpanded)}>
+                <div className={'color-select__color'} style={{background: selectedColor}}/>
+                <input className={'field__input'}
+                       type={'text'}
+                       placeholder={selectedColor?null:'Выбрать'}
+                       disabled={true}
+                />
+            </div>
             {isExpanded ?
                 <ul className={'color-select__list field_length_medium'}>
                     {listItems}

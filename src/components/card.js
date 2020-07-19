@@ -1,9 +1,9 @@
 import BucketIcon from './bucket-icon';
 import React from 'react';
 
-export default function Card({user}) {
+export default function Card({user, onDelete}) {
     return (
-        <div className={'card'}>
+        <div className={'card'} key={user.id}>
             <div className={'card__header'}>
                 <img className={'card__avatar'} src={user.avatar}/>
                 <div className={'card__data'}>
@@ -15,7 +15,7 @@ export default function Card({user}) {
                         {user.rating}
                     </div>
                 </div>
-                <BucketIcon/>
+                <BucketIcon onClick={() => onDelete(user.id)}/>
             </div>
             <ul className={'card__list'}>
                 <li className={'card__item'}>{user.age}</li>

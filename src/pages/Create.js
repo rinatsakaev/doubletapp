@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react';
 
-import '../styles/App.scss';
 import Header from '../components/header';
 import Button from '../components/button';
 import TextField from '../components/text-field';
@@ -8,6 +7,7 @@ import Select from '../components/select/select';
 import ColorSelect from '../components/color-select';
 import {Link} from 'react-router-dom';
 import ApiService from '../services/apiService';
+import { Redirect } from "react-router-dom";
 
 export default function Create() {
     const [groups, setGroups] = useState([]);
@@ -17,6 +17,7 @@ export default function Create() {
     const [speciality, setSpeciality] = useState(undefined);
     const [formState, setFormState] = useState({});
     const [preview, setPreview] = useState();
+    const [isRedirected, setIsRedirected] = useState(false);
 
     useEffect(() => {
         ApiService.fetchColors()
@@ -44,7 +45,8 @@ export default function Create() {
             formData.append(key, value);
 
         ApiService.createUser(formData)
-            .catch(x => console.log(x));
+            .then(() => setIsRedirected(true))
+            .catch(console.log);
     };
 
     const handleInputChange = (event) => {
@@ -67,6 +69,8 @@ export default function Create() {
             [event.target.name]: event.target.value
         }));
     };
+    if (isRedirected)
+        return <Redirect to={'/'}/>
 
     return (
         <div>
@@ -94,36 +98,29 @@ export default function Create() {
                                        name={'avatar'}
                                 />
                                 {preview ?
-                                    <p className={'change-avatar__size'}>{preview.width}x{preview.height}</p> : null}
+                                    <p className={'change-avatar__size'}>{preview.width}x{preview.height}</p>
+                                    : null
+                                }
 
                             </div>
                         </div>
                     </section>
                     <section className={'container__fields'}>
                         <div className={'container__field_name'}>
-                            <TextField label={'ФИО'}
-                                       placeholder={'Имя'}
-                                       name={'fullName'}/>
+                            <TextField label={'ФИО'} placeholder={'Имя'} name={'fullName'}/>
                         </div>
                         <div className={'container__field_gender'}>
-                            <Select placeholder={'Выбрать'}
-                                    label={'Пол'}
-                                    options={genders}
+                            <Select placeholder={'Выбрать'} label={'Пол'} options={genders}
                                     onChange={(x) =>
                                         setFormState((prev) => ({
                                             ...prev,
                                             GenderId: x.id
                                         }))}
-                                    getOptionValue={x => x.id}
-                                    getOptionLabel={x => x.name}
-                                    name={'gender'}
+                                    getOptionValue={x => x.id} getOptionLabel={x => x.name}
                             />
                         </div>
                         <div className={'container__field_email'}>
-                            <TextField label={'Email'}
-                                       placeholder={'Email'}
-                                       name={'email'}
-                            />
+                            <TextField label={'Email'} placeholder={'Email'} name={'email'}/>
                         </div>
                         <div className={'container__field_color'}>
                             <ColorSelect colors={colors}
@@ -135,8 +132,7 @@ export default function Create() {
                                          }}/>
                         </div>
                         <div className={'container__field_speciality'}>
-                            <Select placeholder={'Выбрать'}
-                                    label={'Специальность'}
+                            <Select placeholder={'Выбрать'} label={'Специальность'} options={specialities}
                                     onChange={(x) => {
                                         setSpeciality(x);
                                         setFormState((prev) => ({
@@ -144,37 +140,24 @@ export default function Create() {
                                             SpecialityId: x.id
                                         }))
                                     }}
-                                    options={specialities}
-                                    getOptionValue={x => x.id}
-                                    getOptionLabel={x => x.name}
-                                    name={'speciality'}
+                                    getOptionValue={x => x.id} getOptionLabel={x => x.name}
                             />
                         </div>
                         <div className={'container__field_group'}>
-                            <Select placeholder={'Выбрать'}
-                                    label={'Группа'}
-                                    options={groups}
+                            <Select placeholder={'Выбрать'} label={'Группа'} options={groups}
                                     onChange={(x) =>
                                         setFormState((prev) => ({
                                             ...prev,
                                             GroupId: x.id
                                         }))}
-                                    getOptionValue={x => x.id}
-                                    getOptionLabel={x => x.name}
-                                    name={'group'}
+                                    getOptionValue={x => x.id} getOptionLabel={x => x.name}
                             />
                         </div>
                         <div className={'container__field_rating'}>
-                            <TextField label={'Рейтинг'}
-                                       placeholder={'0'}
-                                       name={'rating'}
-                            />
+                            <TextField label={'Рейтинг'} placeholder={'0'} name={'rating'}/>
                         </div>
                         <div className={'container__field_age'}>
-                            <TextField label={'Возраст'}
-                                       placeholder={'0'}
-                                       name={'age'}
-                            />
+                            <TextField label={'Возраст'} placeholder={'0'} name={'age'}/>
                         </div>
                         <div className={'container__field_button button_width_long'}>
                             <Button text={'Создать'} onClick={() => sendForm()}/>

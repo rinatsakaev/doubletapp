@@ -20,7 +20,6 @@ export default function Select({placeholder, label,
                          onChange = {onChange}
                          getOptionValue = {getOptionValue}
                          getOptionLabel = {getOptionLabel}
-                         name={name}
             />
         </div>
     )

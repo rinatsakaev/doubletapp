@@ -2,8 +2,8 @@ import Row from './table-row';
 import React from 'react';
 import BucketIcon from './bucket-icon';
 
-export default function Table({data}) {
-    const rows = data.map(x => <Row user={x}/>);
+export default function Table({data, onDelete}) {
+    const rows = data.map(x => <Row user={x} onDelete={() => onDelete(x.id)}/>);
     return (
         <table className={'users-table'}>
             <thead className={'users-table__head'}>

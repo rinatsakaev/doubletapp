@@ -1,7 +1,8 @@
-import React, {Component, createContext} from 'react';
+import React, {Component} from 'react';
 import {Route, Switch, withRouter} from 'react-router-dom';
 import Create from './Create';
 import Index from './Index';
+import '../styles/App.scss';
 
 class App extends Component {
     render() {

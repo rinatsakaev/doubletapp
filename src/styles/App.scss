@@ -43,6 +43,10 @@ a {
   height: 85px;
   box-shadow: $shadow;
   padding: 22px 0 22px 123px;
+  position: fixed;
+  top: 0;
+  background: #FFFFFF;
+  z-index: 1;
   @media (max-width: 380px) {
     padding-left: 30px;
   }
@@ -96,12 +100,15 @@ a {
   }
 
   &_page_main {
-    margin-top: 75px;
+    margin-top: 160px;
     grid-template-columns: 300px auto 340px;
     @media (max-width: 380px) {
       grid-template-columns: 335px;
-      margin-top: 20px;
+      margin-top: 105px;
     }
+  }
+  &_page_create{
+    margin-top: 85px;
   }
 
   &__title {

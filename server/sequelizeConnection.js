@@ -1,9 +1,10 @@
 import {Sequelize} from 'sequelize';
 import path from "path";
-const connection =  new Sequelize('qhlpwazs', 'qhlpwazs', '6EChyrCaOZaXSTqD6INjn1Qh-dafmurf',
+import config from "./dbConfig";
+const connection =  new Sequelize(config.database, config.username, config.password,
     {
-        host: 'rogue.db.elephantsql.com',
-        dialect: 'postgres',
+        host: config.host,
+        dialect: config.dialect,
         models: [path.join(__dirname, 'models')]
     });
 export default connection;

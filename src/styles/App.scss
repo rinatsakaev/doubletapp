@@ -325,13 +325,13 @@ a {
 
   &_width {
     &_short {
-      width: 340px;
+      max-width: 340px;
     }
 
     &_long {
-      width: 380px;
+      max-width: 380px;
       @media (max-width: 380px) {
-        width: 335px;
+        max-width: 335px;
       }
     }
   }
@@ -519,7 +519,7 @@ a {
 }
 
 .card {
-  width: 335px;
+  max-width: 335px;
   height: 170px;
   box-shadow: $shadow;
   border-radius: 6px;

@@ -1,2 +1,1 @@
-export const staticBasePath = '/';
-export const port=80;
+export const port=process.env.PORT || 80;

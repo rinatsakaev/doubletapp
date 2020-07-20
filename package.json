@@ -4,12 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --mode production --config ./webpack.client.config.js",
-    "start": "concurrently --kill-others \"npm run prod-client\" \"npm run prod-server\"",
     "prod-client": "webpack -p --config ./webpack.client.config.js --progress",
     "prod-server": "webpack --config ./webpack.server.config.js --progress",
-    "heroku-postbuild": "npm run prod-client && npm run prod-server",
-    "deps:production": "npm ci --production"
+    "build": "npm run prod-client && npm run prod-server",
+    "start": "node dist-server/index_bundle.js",
+    "deps:production": "npm install"
   },
   "keywords": [],
   "author": "",
@@ -56,8 +55,9 @@
     "react-responsive": "^8.1.0",
     "react-router-dom": "^5.2.0",
     "react-select": "^3.1.0",
-    "react-table": "^7.2.2",
     "sass": "^1.26.10",
-    "sequelize": "^6.3.3"
+    "sequelize": "^6.3.3",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12"
   }
 }

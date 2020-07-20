@@ -2,6 +2,7 @@ import {getUsers, getUser, createUser, deleteUser} from './controllers/users';
 import {getColors} from './controllers/colors';
 import {getSpecialities} from './controllers/specialities';
 import {getGenders} from './controllers/genders';
+import path from "path";
 async function errorWrapper(req, res, func) {
     try{
         await func(req, res);

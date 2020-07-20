@@ -22,7 +22,7 @@ export async function createUser(req, res) {
     if (req.files){
         const extension = req.files.avatar.name.split('.').pop();
         const fileName = `${result.id}.${extension}`;
-        await req.files.avatar.mv(`./server/static/avatars/${fileName}`);
+        await req.files.avatar.mv(path.join(__dirname, '..', `\\public\\avatars\\${fileName}`));
         const user = await User.findOne({where: {id: result.id}});
         await user.update({avatar: fileName});
     }

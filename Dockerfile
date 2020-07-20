@@ -9,10 +9,9 @@ COPY package-lock.json /
 
 # Устанавливаем зависимости
 RUN npm run deps:production
-
 # Сообщаем, что контейнер готов принимать запросы по 80 порту
 # Нужно для локального запуска контейнера, Heroku проигнорирует
-EXPOSE 8080 9090
+EXPOSE 80
 
 # Запускаем сервис при старте контейнера
-CMD npm run heroku-postbuild
+CMD npm run start

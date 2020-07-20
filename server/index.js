@@ -10,6 +10,7 @@ import routes from './routes';
 import fileUpload from 'express-fileupload';
 import bodyParser from 'body-parser';
 import path from 'path';
+import {port} from '../config';
 const app = express();
 const cors = require('cors');
 app.use(cors());
@@ -17,8 +18,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(fileUpload());
 app.use(express.static(path.join(__dirname, 'static')));
+app.use(express.static(path.join(__dirname, "..", "dist")));
 routes(app);
-console.log("DIRNAME", path.resolve(__dirname));
 sequelizeConnection.authenticate()
     .then(() => sequelizeConnection.sync({force: true}))
     .then(() => {
@@ -29,7 +30,6 @@ sequelizeConnection.authenticate()
             .then(() => User.bulkCreate(data.users))
     })
     .then(() => {
-        const port = 9090;
         app.listen(port, async () => {
             console.info(`Server started on ${port}`);
             console.info(`Open http://localhost:${port}/`);

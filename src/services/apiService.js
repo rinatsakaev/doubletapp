@@ -1,5 +1,5 @@
 export default class ApiService {
-    static apiBase = 'http://127.0.0.1:9090';
+    static apiBase = window.location.protocol +'//'+ window.location.host;
     static fetchUsers = async () => await fetch(`${this.apiBase}/users`);
     static fetchColors = async () => await fetch(`${this.apiBase}/colors`);
     static fetchGenders = async () => await fetch(`${this.apiBase}/genders`);

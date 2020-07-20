@@ -1,7 +1,7 @@
 {
-  "database": "",
-  "username": "",
-  "password": "",
-  "host": "",
-  "dialect": ""
+  "database": "qhlpwazs",
+  "username": "qhlpwazs",
+  "password": "98hHAA2XZvPJCU0eMIyRtye3TTN207GO",
+  "host": "rogue.db.elephantsql.com",
+  "dialect": "postgres"
 }

@@ -1,12 +1,11 @@
 import React from 'react';
 import BucketIcon from './bucket-icon';
-import {staticBasePath} from '../config';
 
 export default function Row({ user, onDelete }) {
   return (
     <tr className="users-table__row">
       <td className="users-table__cell">
-          <img className="users-table__avatar" src={`${staticBasePath}/avatars/${user.avatar}`}/>
+          <img className="users-table__avatar" src={`/avatars/${user.avatar}`}/>
       </td>
       <td className="users-table__cell">{user.fullName}</td>
       <td className="users-table__cell">{user.speciality}</td>

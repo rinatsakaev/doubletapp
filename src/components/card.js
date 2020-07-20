@@ -1,12 +1,11 @@
 import React from 'react';
 import BucketIcon from './bucket-icon';
-import {staticBasePath} from '../config';
 
 export default function Card({ user, onDelete }) {
   return (
     <div className="card">
       <div className="card__header">
-        <img className="card__avatar" src={`${staticBasePath}/avatars/${user.avatar}`}/>
+        <img className="card__avatar" src={`/avatars/${user.avatar}`}/>
         <div className="card__data">
           <p className="card__title">{user.fullName}</p>
           <div

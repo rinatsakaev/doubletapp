@@ -60,6 +60,23 @@ a {
     font-size: 20px;
     text-transform: uppercase;
   }
+  &__profile{
+    &::before{
+      content: 'by';
+      font-style: normal;
+      font-weight: 500;
+      font-size: 20px;
+      color: #000000;
+      margin: 0 5px;
+    }
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    color: #49C2E8;
+    @media (max-width: 380px) {
+      display: none;
+    }
+  }
 
   &__logo {
     position: relative;
